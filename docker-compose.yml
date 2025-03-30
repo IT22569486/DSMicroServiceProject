@@ -1,0 +1,19 @@
+# no need I think
+version: '3.8'
+services:
+  restaurant-service-j:
+    build: ./restaurent-service
+    ports:
+      - "6010:6001"
+    env_file:
+      - ./restaurent-service/.env
+  order-service-j:
+    build: ./order-service
+    ports:
+      - "6020:6002"
+    env_file:
+      - ./order-service/.env
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
